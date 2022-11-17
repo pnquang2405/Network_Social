@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 import { login } from '../redux/actions/authAction'
 
 
@@ -9,7 +9,13 @@ const Login = () => {
     const [userData, setUserData] = useState(initialState)
     const { email, password } = userData
 
+    const {auth} = useSelector(state => state)
     const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
+        if(auth.token) history.push('/')
+    }, [auth.token, history])
 
     const handleChangeInput = e => {
         const { name, value } = e.target
@@ -55,7 +61,7 @@ const Login = () => {
                     Login
                 </button>
                 <p className='my-2'>
-                    You don't have an account? <Link to='/register' style={{ color: 'grey' }}>Register</Link>
+                    You don't have an account? <Link to='/register' style={{ color: 'red' }}>Register now</Link>
                 </p>
             </form>
         </div>
