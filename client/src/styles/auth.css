@@ -1,0 +1,15 @@
+.auth_page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth_page form {
+  background-color: white;
+  border: 1px solid gainsboro;
+  box-shadow: 0px 0px 10px 10px whitesmoke;
+  border-radius: 5px;
+  padding: 30px;
+}
