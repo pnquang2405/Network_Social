@@ -1,5 +1,6 @@
 import { GLOBALTYPES} from './globalTypes'
 import { getDataAPI} from '../../utils/fetchData'
+
 // import { imageUpload } from '../../utils/imageUpload'
 // import { createNotify, removeNotify } from '../actions/notifyAction'
 
@@ -21,8 +22,9 @@ export const getProfileUsers = ({id, auth}) => async (dispatch) => {
         console.log("1111");
         dispatch({type: PROFILE_TYPES.LOADING, payload: true})
         console.log(id);
-        const res = await getDataAPI(`/user/${id}`, auth.token)
+        const res = await getDataAPI(`user/${id}`, auth.token)
         console.log(res);
+
         // const res1 = getDataAPI(`/user_posts/${id}`, auth.token)
         
         const users = res;
