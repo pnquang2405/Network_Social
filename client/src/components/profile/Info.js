@@ -19,21 +19,14 @@ const Info = () => {
         if(id === auth.user._id){
             setUserData([auth.user])
         }else{
-            dispatch(getProfileUsers({users:Profiler.users,id,auth}))
+            console.log(33333);
+            dispatch(getProfileUsers({users:profile.users,id,auth}))
         //     const newData = profile.users.filter(user => user._id === id)
         //     setUserData(newData)
         }
     }, [id, auth, dispatch, profile.users])
 
 
-    // useEffect(() => {
-    //     if(showFollowers || showFollowing || onEdit){
-    //         dispatch({ type: GLOBALTYPES.MODAL, payload: true})
-    //     }else{
-    //         dispatch({ type: GLOBALTYPES.MODAL, payload: false})
-    //     }
-    // },[showFollowers, showFollowing, onEdit, dispatch])
-    
 
     return (
         <div className="info">
