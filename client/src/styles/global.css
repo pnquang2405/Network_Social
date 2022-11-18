@@ -45,6 +45,7 @@ img {
   border-radius: 50%;
 }
 
-/* ----AUTH---- */
-@import url("./styles/auth.css");
-/* -----HEADER------ */
+@import url("./auth.css");
+@import url("./loading.css");
+@import url("./header.css");
+@import url("./avatar.css");

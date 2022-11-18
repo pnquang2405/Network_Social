@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', require('./routes/authRouter'))
+app.use('/api', require('./routes/userRouter'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
