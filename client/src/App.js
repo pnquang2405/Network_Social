@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Alert from './components/alert/Alert'; 
-import Header from './components/alert/Header';
+import Header from './components/header/Header';
 
-import PageRender from './PageRender'
+import PageRender from './customRouter/PageRender'
+import PrivateRouter from './customRouter/PrivateRouter'
 import Login from './pages/login'
+import Register from './pages/register'
 import Home from './pages/home'
 
 import { useEffect } from 'react';
@@ -30,8 +32,10 @@ function App() {
         <div className='main'>
           {auth.token && <Header/>}
           <Route exact path="/" component={auth.token ? Home : Login}></Route>
-          <Route exact path="/:page" component={PageRender}></Route>
-          <Route exact path="/:page/:id" component={PageRender}></Route>
+          <Route exact path="/register" component={Register}></Route>
+
+          <PrivateRouter exact path="/:page" component={PageRender}></PrivateRouter>
+          <PrivateRouter exact path="/:page/:id" component={PageRender}></PrivateRouter>
         </div>
       </div>
     </Router>
