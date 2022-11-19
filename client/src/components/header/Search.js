@@ -14,9 +14,7 @@ const Search = () => {
     const [load, setLoad] = useState(false)
 
 
-    console.log("2323")
     const handleSearch = async (e) => {
-        console.log("vao dt")
         e.preventDefault()
         if(!search) return;
 
@@ -71,5 +69,5 @@ const Search = () => {
         </form>
     )
 }
-
+  
 export default Search
