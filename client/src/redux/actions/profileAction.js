@@ -29,6 +29,7 @@ export const getProfileUsers = ({id, auth}) => async (dispatch) => {
         
         const users = res;
         // const posts = await res1;
+        console.log(users.data);
 
         dispatch({
             type: PROFILE_TYPES.GET_USER,
