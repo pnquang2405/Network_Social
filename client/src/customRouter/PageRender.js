@@ -9,8 +9,8 @@ const generatePage = (pageName) => {
     try {
         return React.createElement(component())
     }catch (err){
-        return <NotFound></NotFound>
-    }
+        return <NotFound />
+        }
 }
 
 const PageRender = () => {

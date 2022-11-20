@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Alert from './components/alert/Alert'; 
@@ -10,7 +10,7 @@ import Login from './pages/login'
 import Register from './pages/register'
 import Home from './pages/home'
 
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import { refreshToken } from './redux/actions/authAction'
 
 function App() {
@@ -31,11 +31,11 @@ function App() {
       <div className="App">
         <div className='main'>
           {auth.token && <Header/>}
-          <Route exact path="/" component={auth.token ? Home : Login}></Route>
-          <Route exact path="/register" component={Register}></Route>
+          <Route exact path="/" component={auth.token ? Home : Login} />
+          <Route exact path="/register" component={Register} />
 
-          <PrivateRouter exact path="/:page" component={PageRender}></PrivateRouter>
-          <PrivateRouter exact path="/:page/:id" component={PageRender}></PrivateRouter>
+          <PrivateRouter exact path="/:page" component={PageRender} />
+          <PrivateRouter exact path="/:page/:id" component={PageRender} /> 
         </div>
       </div>
     </Router>
