@@ -10,7 +10,7 @@ app.unsubscribe(cors())
 app.unsubscribe(cookieParser())
 
 app.get('/', (req, res) => {
-    res.json({msg: "Hello"})
+    res.json({ msg: "Hello" })
 })
 
 app.use('/api', require('./routes/authRouter'))
@@ -18,14 +18,14 @@ app.use('/api', require('./routes/userRouter'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }, err => {
-    if(err) throw err;
+    if (err) throw err;
     console.log('Connected to mongodb')
 })
 
-const port = process.env.port || 5000
+const port = process.env.port || 5001
 app.listen(port, () => {
     console.log('server is running on port', port)
 })
