@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Profiler } from 'react'
-import { useParams } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import {useParams} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
 import Avatar from '../Avatar'
 import { getProfileUsers } from '../../redux/actions/profileAction'
 
 const Info = () => {
     const { id } = useParams()
-    const { auth, profile } = useSelector(state => state)
+    const {auth, profile} = useSelector(state=>state)
     const dispatch = useDispatch()
 
     const [userData, setUserData] = useState([])
@@ -16,15 +16,15 @@ const Info = () => {
     // const [showFollowing, setShowFollowing] = useState(false)
 
     useEffect(() => {
-        if (id === auth.user._id) {
+        if(id === auth.user._id){
             setUserData([auth.user])
-        } else {
+        }else{
             console.log(8888);
-            dispatch(getProfileUsers({ users: profile.users, id, auth }))
-            const newData = profile.users.filter(user => user._id === id)
-            setUserData(newData)
+            dispatch(getProfileUsers({users:profile.users,id,auth}))
+        //     const newData = profile.users.filter(user => user._id === id)
+        //     setUserData(newData)
         }
-    }, [id, auth, dispatch, profile.users])
+    }, [])
 
 
 
@@ -39,7 +39,7 @@ const Info = () => {
                             <div className="info_content_title">
                                 <h2>{user.username}</h2>
                                 <button className="btn btn-outline-info">
-                                    Edit Profile
+                                        Edit Profile
                                 </button>
                                 {/* {
                                     user._id === auth.user._id
@@ -49,15 +49,15 @@ const Info = () => {
                                     
                                     : <FollowBtn user={user} />
                                 } */}
-
-
+                               
+                                
                             </div>
                             <div>
                                 <span className="mr-4" >
-                                    {user.followers.length} Followers
+                                        {user.followers.length} Followers
                                 </span>
                                 <span className="mr-4" >
-                                    {user.followers.length} Following
+                                        {user.followers.length} Following
                                 </span>
                             </div>
 
@@ -70,10 +70,10 @@ const Info = () => {
                             <p>{user.story}</p>
                         </div>
 
+                        
 
-
-
-
+                       
+                        
                     </div>
                 ))
             }
