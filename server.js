@@ -7,12 +7,12 @@ const cookieParser = require('cookie-parser')
 const app = express()
 app.use(express.json())
 app.unsubscribe(cors())
-app.unsubscribe(cookieParser())
+app.use(cookieParser())
 
 app.get('/', (req, res) => {
     res.json({msg: "Hello"})
 })
-
+//Router
 app.use('/api', require('./routes/authRouter'))
 app.use('/api', require('./routes/userRouter'))
 

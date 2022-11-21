@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getDataAPI } from '../../utils/fetchData'
 import { GLOBALTYPES } from '../../redux/actions/globalTypes'
 import UserCard from '../UserCard'
 import LoadIcon from '../../images/loading.gif'
+import { Link } from 'react-router-dom'
 
 const Search = () => {
     const [search, setSearch] = useState('')
@@ -11,6 +12,21 @@ const Search = () => {
 
     const { auth } = useSelector(state => state)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(search){
+            getDataAPI(`search?username=${search}`, auth.token)
+            .then(res => setUsers(res.data.users))
+            .catch(err => {
+                dispatch({
+                    type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg}
+                })
+            })
+        } else {
+            setUsers([])
+        }
+    },[search,auth.token, dispatch])
+
     const [load, setLoad] = useState(false)
 
 
@@ -57,12 +73,15 @@ const Search = () => {
             <div className="users">
                 {
                     search && users.map(user => (
-                        <UserCard 
-                        key={user._id} 
-                        user={user} 
-                        border="border"
-                        handleClose={handleClose} 
-                        />
+                        <Link key={user._id} to={`/profile/${user._id}`} onClick={handleClose}>
+                            <UserCard 
+                            key={user._id} 
+                            user={user} 
+                            border="border"
+                            handleClose={handleClose} 
+                            />
+                        </Link>
+                        
                     ))
                 }
             </div>
