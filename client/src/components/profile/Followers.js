@@ -1,12 +1,12 @@
 import React from "react";
-import UserCard from ' ../UserCard';
+import UserCard from '../UserCard';
 import FollowBtn from "../FollowBtn";
-import {userSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
-const Followers = ({users,setShowFollowers}) => {
+const Followers = ({ users, setShowFollowers }) => {
 
-    const {auth} = userSelector(state => state)
+    const { auth } = useSelector(state => state)
 
     return (
         <div className="follow">
@@ -14,13 +14,13 @@ const Followers = ({users,setShowFollowers}) => {
             <div className="follow_box">
 
                 <h5 className="text-center">Followers</h5>
-                <hr/>
+                <hr />
                 {
                     users.map(user => (
 
-                        <UserCard key = {user._id} user = {user} setShowFollowers = {setShowFollowers} >
+                        <UserCard key={user._id} user={user} setShowFollowers={setShowFollowers} >
                             {
-                                auth.user._id !== user._id && <FollowBtn user={user}/>
+                                auth.user._id !== user._id && <FollowBtn user={user} />
                             }
                         </UserCard>
                     ))

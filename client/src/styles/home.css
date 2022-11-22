@@ -1,0 +1,17 @@
+.status {
+  background: white;
+  box-shadow: 0 0 5px gainsboro;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.status .statusBtn {
+  background: ghostwhite;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  color: dimgrey;
+  padding: 0 10px;
+  text-align: left;
+  margin: 0 10px;
+}

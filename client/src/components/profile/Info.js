@@ -48,7 +48,7 @@ const Info = () => {
                                             onClick={() => setOnEdit(true)}>
                                             Edit Profile
                                         </button>
-                                        : <FollowBtn user = {user}/>
+                                        : <FollowBtn user={user} />
                                 }
 
                                 {/* {
@@ -85,21 +85,16 @@ const Info = () => {
                         }
 
                         {
-                        showFollowers &&
-                        <Followers users={user.followers} setShowFollowers = {setShowFollowers} />
-                        
+                            showFollowers &&
+                            <Followers users={user.followers} setShowFollowers={setShowFollowers} />
+
                         }
 
                         {
-                        showFollowing &&
-                        <Following users={user.following} setShowFollowing = {setShowFollowing}/>
-                        
+                            showFollowing &&
+                            <Following users={user.following} setShowFollowing={setShowFollowing} />
+
                         }
-
-                        
-
-
-
 
                     </div>
                 ))
