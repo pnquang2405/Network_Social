@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { createPost } from '../redux/actions/postAction'
 import { GLOBALTYPES } from '../redux/actions/globalTypes'
 
 const StatusModal = () => {
@@ -55,7 +56,7 @@ const StatusModal = () => {
     const ctx = refCanvas.current.getContext('2d')
     ctx.drawImage(videoRef.current, 0, 0, width, height)
     let URL = refCanvas.current.toDataURL()
-    setImages([...images, {camera: URL}])
+    setImages([...images, { camera: URL }])
   }
   const handleStopStream = () => {
     tracks.stop()
@@ -63,9 +64,22 @@ const StatusModal = () => {
 
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (images.length === 0)
+      return dispatch({
+        type: GLOBALTYPES.ALERT, payload: { error: "Please add your photo" }
+      })
+    dispatch(createPost({ content, images, auth }))
+    setContent('')
+    setImages([])
+    if (tracks) tracks.stop()
+    dispatch({ type: GLOBALTYPES.STATUS, payload: false })
+  }
+
   return (
     <div className='status_modal'>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className='status_header'>
           <h5 className='m-0'>Create Post</h5>
           <span onClick={() => dispatch({ type: GLOBALTYPES.STATUS, payload: false })}>
@@ -119,7 +133,7 @@ const StatusModal = () => {
           </div>
         </div>
         <div className='status_footer'>
-          <button className='btn btn-secondary w-100'>Post</button>
+          <button className='btn btn-secondary w-100' type='submit'>Post</button>
         </div>
       </form>
     </div>
