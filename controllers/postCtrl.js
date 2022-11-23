@@ -8,7 +8,7 @@ const postCtrl = {
       if (images.length === 0)
         return res.status(400).json({ msg: "Please add your photo" })
       const newPost = new Posts({
-        content, images
+        content, images, user: req.user._id
       })
       await newPost.save()
       res.json({
