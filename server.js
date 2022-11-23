@@ -10,18 +10,19 @@ app.unsubscribe(cors())
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
-    res.json({msg: "Hello"})
+    res.json({ msg: "Hello" })
 })
 //Router
 app.use('/api', require('./routes/authRouter'))
 app.use('/api', require('./routes/userRouter'))
+app.use('/api', require('./routes/postRouter'))
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }, err => {
-    if(err) throw err;
+    if (err) throw err;
     console.log('Connected to mongodb')
 })
 
