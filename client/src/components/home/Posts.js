@@ -17,6 +17,7 @@ const Posts = () => {
           </div>
         })
       }
+      <CardBody />
       
     </div>
   )
