@@ -54,7 +54,32 @@ const postCtrl = {
     } catch (error) {
       return res.status(500).json({ msg: error.message })
     }
-  }
+  },
+  likePost: async (req, res) => {
+    try {
+      const post = await Posts.find({ _id: req.params.id, likes: req.user._id })
+      if (post.length > 0) return res.status(400).json({ msg: "You liked this post." })
+
+      const like = await Posts.findOneAndUpdate({ _id: req.params.id }, {
+        $push: { likes: req.user._id }
+      }, { new: true })
+      res.json({ msg: 'Liked Post!' })
+
+    } catch (error) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
+  unLikePost: async (req, res) => {
+    try {
+      const like = await Posts.findOneAndUpdate({ _id: req.params.id }, {
+        $pull: { likes: req.user._id }
+      }, { new: true })
+      res.json({ msg: 'Unliked Post!' })
+
+    } catch (error) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
 }
 
 module.exports = postCtrl
