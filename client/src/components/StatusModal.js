@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost,updatePost } from '../redux/actions/postAction'
+import { createPost, updatePost } from '../redux/actions/postAction'
 import { GLOBALTYPES } from '../redux/actions/globalTypes'
 
 const StatusModal = () => {
@@ -70,20 +70,19 @@ const StatusModal = () => {
       return dispatch({
         type: GLOBALTYPES.ALERT, payload: { error: "Please add your photo" }
       })
-      if(status.onEdit) {
-        dispatch(updatePost({content, images, auth, status}))
-      } else {
-        dispatch(createPost({content, images, auth}))
-      }
+    if (status.onEdit) {
+      dispatch(updatePost({ content, images, auth, status }))
+    } else {
+      dispatch(createPost({ content, images, auth }))
+    }
 
-      
     setContent('')
     setImages([])
     if (tracks) tracks.stop()
     dispatch({ type: GLOBALTYPES.STATUS, payload: false })
   }
   useEffect(() => {
-    if(status.onEdit){
+    if (status.onEdit) {
       setContent(status.content)
       setImages(status.images)
     }
@@ -107,9 +106,9 @@ const StatusModal = () => {
               images.map((img, index) => (
                 <div key={index} id="file_img">
                   <img src={
-                    img.camera 
-                    ? img.camera 
-                    : img.url ?img.url : URL.createObjectURL(img)
+                    img.camera
+                      ? img.camera
+                      : img.url ? img.url : URL.createObjectURL(img)
                   }
                     alt="images" className="img-thumbnail"
                     style={{ filter: theme ? 'invert(1)' : 'invert(0)' }}

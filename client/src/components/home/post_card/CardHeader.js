@@ -9,24 +9,23 @@ const CardHeader = ({ post }) => {
     const { auth } = useSelector(state => state)
     const dispatch = useDispatch()
     const handleEditPost = () => {
-        console.log(post)
         dispatch({ type: GLOBALTYPES.STATUS, payload: { ...post, onEdit: true } })
     }
     return (
         <div className="card_header">
             <div className="d-flex">
                 <Avatar src={post.user.avatar} size="big-avatar" />
-            </div>
-            <div className="card_name">
-                <h6 className="m-0">
-                    <Link to={`/profile/${post.user._id}`} className="text-dark">
-                        {post.user.username}
-                    </Link>
-                </h6>
-                <small className="text-muted">
-                    {moment(post.createAt).fromNow()}
-                </small>
 
+                <div className="card_name ml-4">
+                    <h6 className="">
+                        <Link to={`/profile/${post.user._id}`} className="text-dark">
+                            {post.user.username}
+                        </Link>
+                    </h6>
+                    <small className="text-muted">
+                        {moment(post.createdAt).fromNow()}
+                    </small>
+                </div>
             </div>
             <div className="nav-item dropdown">
                 <span className="material-icons" id="moreLink" data-toggle="dropdown">
