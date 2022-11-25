@@ -18,7 +18,6 @@ const Posts = () => {
           </div>
         ))
       }
-
     </div>
   )
 }
