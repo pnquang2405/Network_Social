@@ -6,7 +6,7 @@ import CardFooter from './post_card/CardFooter'
 
 const Posts = () => {
   const { homePosts } = useSelector(state => state)
-  console.log("homeposts received", homePosts.posts)
+
   return (
     <div className="posts">
       {
