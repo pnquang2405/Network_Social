@@ -26,6 +26,15 @@ const postCtrl = {
         user: [...req.user.following, req.user._id]
       }).sort('-createdAt')
         .populate("user likes", "avatar username fullname")
+        .populate({
+          path:"comments",
+          populate: {
+            path :"user likes",
+            select:"-password"
+          }
+        }
+         
+        )
 
       res.json({
         msg: 'Success!',
@@ -43,6 +52,7 @@ const postCtrl = {
       const post = await Posts.findOneAndUpdate({ _id: req.params.id }, {
         content, images
       }).populate("user likes", "avatar username fullname")
+      
 
       res.json({
         msg: "Update Post!",
