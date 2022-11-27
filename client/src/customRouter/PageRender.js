@@ -8,15 +8,16 @@ const generatePage = (pageName) => {
 
     try {
         return React.createElement(component())
-    }catch (err){
+    } catch (err) {
         return <NotFound />
-        }
+    }
 }
 
 const PageRender = () => {
     const {page, id} = useParams()
-    let pageName = "";
     const { auth } = useSelector(state => state)
+
+    let pageName = "";
 
     if(auth.token){
         if(id){
@@ -25,6 +26,7 @@ const PageRender = () => {
             pageName = `${page}`
         }
     }
+
     return generatePage(pageName)
 }
 
