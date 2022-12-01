@@ -27,6 +27,7 @@ import Peer from 'peerjs'
 
 function App() {
   const { auth, status, modal, call } = useSelector(state => state)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -83,6 +84,7 @@ function App() {
           <Route exact path="/" component={auth.token ? Home : Login} />
           <Route exact path="/register" component={Register} />
 
+{/* private router */}
           <PrivateRouter exact path="/:page" component={PageRender} />
           <PrivateRouter exact path="/:page/:id" component={PageRender} />
           
