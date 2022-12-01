@@ -12,6 +12,4 @@ router.patch('/isReadNotify/:id', auth, notifyCtrl.isReadNotify)
 
 router.delete('/deleteAllNotify', auth, notifyCtrl.deleteAllNotifies)
 
-
-
 module.exports = router
