@@ -12,10 +12,10 @@ const Message = () => {
                 <div className="d-flex justify-content-center 
                 align-items-center flex-column h-100">
 
-                    <i className="fab fa-facebook-messenger text-primary"
+                    {/* <i className="fab fa-facebook-messenger text-primary"
                     style={{fontSize: '5rem'}} />
-                    <h4>Messenger</h4>
-
+                    <h4>Messenger</h4> */}
+                    Your messages will be displayed here
                 </div>
             </div>
         </div>

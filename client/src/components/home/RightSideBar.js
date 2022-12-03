@@ -18,25 +18,25 @@ const RightSideBar = () => {
                 <h5 className="text-danger">Suggestions for you</h5>
                 {
                     !suggestions.loading &&
-                    <i className="fas fa-redo" style={{cursor: 'pointer'}}
-                    onClick={ () => dispatch(getSuggestions(auth.token)) } />
+                    <i className="fas fa-redo" style={{ cursor: 'pointer' }}
+                        onClick={() => dispatch(getSuggestions(auth.token))} />
                 }
             </div>
 
             {
                 suggestions.loading
-                ? <img src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
-                : <div className="suggestions">
-                    {
-                        suggestions.users.map(user => (
-                            <UserCard key={user._id} user={user} >
-                                <FollowBtn user={user} />
-                            </UserCard>
-                        ))
-                    }
-                </div>
+                    ? <img src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
+                    : <div className="suggestions">
+                        {
+                            suggestions.users.map(user => (
+                                <UserCard key={user._id} user={user} >
+                                    <FollowBtn user={user} />
+                                </UserCard>
+                            ))
+                        }
+                    </div>
             }
-
+            {/*             
             <div style={{opacity: 0.5}} className="my-2" >
                 <a href="https://www.youtube.com/c/DevATHTML" target="_blank" rel="noreferrer"
                 style={{wordBreak: 'break-all'}} >
@@ -49,7 +49,7 @@ const RightSideBar = () => {
                 <small>
                    &copy; 2021 V-NETWORK FROM DEV A.T VIET NAM
                 </small>
-            </div>
+            </div> */}
 
         </div>
     )
