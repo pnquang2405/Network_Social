@@ -1,28 +1,36 @@
-.auth_page{
+.auth_page {
     width: 100%;
     min-height: 100vh;
-    background: #fdfdfd;
+    /* background: #fdfdfd; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.auth_page form{
+
+.auth_page form {
     background: #fff;
     max-width: 400px;
     width: 100%;
     border: 1px solid #ddd;
-    padding: 50px 25px;
+    padding: 40px 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 3px gainsboro;
 }
 
-.auth_page form .pass{
+.auth_page form .pass {
     position: relative;
 }
 
-.auth_page form .pass small{
+.auth_page form .pass small {
     position: absolute;
     top: 50%;
     right: 5px;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.5;
+}
+
+.auth_page .important-text {
+    font-weight: bold;
+    color: dodgerblue;
 }
