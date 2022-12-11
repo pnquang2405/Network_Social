@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createComment } from '../../redux/actions/commentAction'
+import Avatar from '../Avatar'
 import Icons from '../Icons'
 
-const InputComment = ({children, post, onReply, setOnReply}) => {
+const InputComment = ({ children, post, onReply, setOnReply }) => {
     const [content, setContent] = useState('')
 
     const { auth, socket, theme } = useSelector(state => state)
@@ -11,13 +12,13 @@ const InputComment = ({children, post, onReply, setOnReply}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!content.trim()){
-            if(setOnReply) return setOnReply(false);
+        if (!content.trim()) {
+            if (setOnReply) return setOnReply(false);
             return;
         }
 
         setContent('')
-        
+
         const newComment = {
             content,
             likes: [],
@@ -26,22 +27,23 @@ const InputComment = ({children, post, onReply, setOnReply}) => {
             reply: onReply && onReply.commentId,
             tag: onReply && onReply.user
         }
-        
-        dispatch(createComment({post, newComment, auth, socket}))
 
-        if(setOnReply) return setOnReply(false);
+        dispatch(createComment({ post, newComment, auth, socket }))
+
+        if (setOnReply) return setOnReply(false);
     }
 
     return (
-        <form className="card-footer comment_input" onSubmit={handleSubmit} >
+        <form className="comment_input" onSubmit={handleSubmit} >
             {children}
+            <Avatar src={auth.user.avatar} size="medium-avatar" />
             <input type="text" placeholder="Add your comments..."
-            value={content} onChange={e => setContent(e.target.value)}
-            style={{
-                filter: theme ? 'invert(1)' : 'invert(0)',
-                color: theme ? 'white' : '#111',
-                background: theme ? 'rgba(0,0,0,.03)' : '',
-            }} />
+                value={content} onChange={e => setContent(e.target.value)}
+                style={{
+                    filter: theme ? 'invert(1)' : 'invert(0)',
+                    color: theme ? 'white' : '#111',
+                    background: theme ? 'rgba(0,0,0,.03)' : '',
+                }} />
 
             <Icons setContent={setContent} content={content} theme={theme} />
 
