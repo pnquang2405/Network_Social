@@ -1,9 +1,14 @@
+.home {
+    max-width: 75vw;
+    margin: auto;
+}
+
 /* --------- Status ---------- */
 .status {
     background: white;
-    box-shadow: 0 0 5px #ddd;
+    box-shadow: 0 0 3px #ddd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid rgb(0, 0, 0, .125);
 }
 
@@ -24,7 +29,8 @@
 
 /* ------------Posts ------ */
 .posts .card {
-    box-shadow: 0 0 4px #ddd;
+    box-shadow: 0 0 3px #ddd;
+    border-radius: 10px;
 }
 
 /* --------- Post Card Header --------- */

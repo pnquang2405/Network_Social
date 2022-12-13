@@ -13,7 +13,7 @@ const Loading = () => {
             <div className="spinner-border text-secondary" role="status">
 
             </div>
-            <span>Loading...</span>
+            {/* <span>Loading...</span> */}
         </div>
     )
 }

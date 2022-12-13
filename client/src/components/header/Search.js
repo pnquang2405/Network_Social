@@ -4,6 +4,7 @@ import { getDataAPI } from '../../utils/fetchData'
 import { GLOBALTYPES } from '../../redux/actions/globalTypes'
 import UserCard from '../UserCard'
 import LoadIcon from '../../images/loading.gif'
+import Loading from '../alert/Loading'
 
 const Search = () => {
     const [search, setSearch] = useState('')
@@ -53,7 +54,10 @@ const Search = () => {
 
             <button type="submit" style={{ display: 'none' }}>Search</button>
 
-            {load && <img className="loading" src={LoadIcon} alt="loading" />}
+            {load &&
+                // <img className="loading" src={LoadIcon} alt="loading" />
+                <Loading />
+            }
 
             <div className="users">
                 {

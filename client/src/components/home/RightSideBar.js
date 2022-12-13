@@ -5,6 +5,7 @@ import UserCard from '../UserCard'
 import FollowBtn from '../FollowBtn'
 import LoadIcon from '../../images/loading.gif'
 import { getSuggestions } from '../../redux/actions/suggestionsAction'
+import Loading from '../alert/Loading'
 
 const RightSideBar = () => {
     const { auth, suggestions } = useSelector(state => state)
@@ -15,7 +16,7 @@ const RightSideBar = () => {
             <UserCard user={auth.user} />
 
             <div className="d-flex justify-content-between align-items-center my-2">
-                <h5 className="text-danger">Suggestions for you</h5>
+                <h5 className="text-danger">Find your friends</h5>
                 {
                     !suggestions.loading &&
                     <i className="fas fa-redo" style={{ cursor: 'pointer' }}
@@ -25,7 +26,9 @@ const RightSideBar = () => {
 
             {
                 suggestions.loading
-                    ? <img src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
+                    ?
+                    // <img src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
+                    <Loading />
                     : <div className="suggestions">
                         {
                             suggestions.users.map(user => (

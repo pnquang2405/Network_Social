@@ -82,13 +82,13 @@ const CardFooter = ({ post }) => {
                     />
 
                     <Link to={`/post/${post._id}`} className="text-dark">
-                        <span class="material-icons" style={{ fontSize: 30 }}>
+                        <span className="material-icons" style={{ fontSize: 30 }}>
                             comment
                         </span>
                     </Link>
 
                     {/* <img src={Send} alt="Send" onClick={() => setIsShare(!isShare)} /> */}
-                    <span class="material-icons" style={{ fontSize: 30 }}>
+                    <span className="material-icons" style={{ fontSize: 30 }}>
                         share
                     </span>
                 </div>

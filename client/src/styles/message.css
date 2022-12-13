@@ -1,5 +1,5 @@
 .message {
-    width: 100%;
+    max-width: 100%;
     height: calc(100vh - 70px);
     border: 1px solid #ddd;
     border-radius: 3px;

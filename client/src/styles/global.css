@@ -33,8 +33,8 @@ code {
 }
 
 .main {
-  max-width: 1000px;
-  width: 100%;
+  max-width: 75vw;
+  /* width: 100%; */
   min-height: 100vh;
   margin: auto;
 }
