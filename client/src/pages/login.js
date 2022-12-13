@@ -32,7 +32,7 @@ const Login = () => {
     return (
         <div className="auth_page">
             <div>
-                <h3 className="text-uppercase text-center mb-2 important-text" >V-Network</h3>
+                <h3 className="text-uppercase text-center mb-2 important-text" >Social-Network</h3>
                 <img src={Cover} style={{ maxWidth: 600 }} alt='cover' />
             </div>
             <form onSubmit={handleSubmit}>
