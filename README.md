@@ -1,4 +1,4 @@
-# Social Network Application using MERN stack
+# 19N12-TEAM 9 - Social Network: News Feed Design
 
 ## Usage
 * Clone project to local
